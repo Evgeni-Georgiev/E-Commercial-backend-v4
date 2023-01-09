@@ -1,5 +1,8 @@
 package eu.delta_source.internship;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 /**
  * The Product class describes the characteristics of a product
  * that can be made as an object and outputs the data
@@ -9,8 +12,12 @@ package eu.delta_source.internship;
  * @version 1.0
  */
 public class Product {
+
 	private final String productLabel;
+
 	private final double productPrice;
+
+	NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(Locale.US);
 
 	// Constructor with default values.
 	public Product() {
@@ -31,8 +38,8 @@ public class Product {
 		return this.productPrice;
 	}
 
-	// Method is outputting the data from the product class in the console.
-	public String runProductOutput() {
-		return String.format("\nLabel of the product: %s \nPrice of the product: $%s", getProductLabel(), getProductPrice());
+	// Method is returning a String containing the details that describe the product(label, price).
+	public String returnProductDetails() {
+		return String.format("\nLabel of the product: %s \nPrice of the product: %s", getProductLabel(), currencyFormat.format(getProductPrice()));
 	}
 }

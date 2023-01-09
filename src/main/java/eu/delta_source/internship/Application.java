@@ -2,11 +2,9 @@ package eu.delta_source.internship;
 
 public class Application {
 	public static void main(String[] args) {
-
 		// Creating products, adding labels and prices.
 		Product apple = new Product("Apple", 2.65);
 		Product carrot = new Product("Carrot", 7.65);
-		// Product dragonFruit = new Product();
 		Product banana = new Product("Banana", 4.00);
 		Product kiwi = new Product("Kiwi", 3.15);
 		Product orange = new Product("Orange", 7.95);
@@ -36,12 +34,11 @@ public class Application {
 		itemsInCart.removeCartItem(carrotItem);
 
 		// Output Label and Price of product, Quantity and Result sum for price and quantity of single product.
-		itemsInCart.runProductsInCartOutput();
+		itemsInCart.productDetailsOutput();
 
 		System.out.println("------------------------------");
 
 		// Output Total summation all items in cart, Summation + VAT, Delivery Fee, End Summation
-		itemsInCart.runCartProcessedDataOutput();
-
+		itemsInCart.grandTotalOfCart();
 	}
 }
