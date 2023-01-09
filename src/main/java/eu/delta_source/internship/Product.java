@@ -1,4 +1,4 @@
-package org.ecommerce;
+package eu.delta_source.internship;
 
 /**
  * The Product class describes the characteristics of a product
@@ -13,12 +13,12 @@ public class Product {
 	private final double productPrice;
 
 	// Constructor with default values.
-	Product() {
+	public Product() {
 		this.productLabel = "Dragon fruit";
 		this.productPrice = 10.0;
 	}
 
-	Product(String productLabel, double productPrice) {
+	public Product(String productLabel, double productPrice) {
 		this.productLabel = productLabel;
 		this.productPrice = productPrice;
 	}

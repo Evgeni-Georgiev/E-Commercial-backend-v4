@@ -1,4 +1,4 @@
-package org.ecommerce;
+package eu.delta_source.internship;
 
 /**
  * The CartItem class wraps existing product as an item from cart.
@@ -12,12 +12,12 @@ public class CartItem {
 	private int quantity;
 
 	// Constructor with default values.
-	CartItem() {
+	public CartItem() {
 		this.product = new Product();
 		this.quantity = 4;
 	}
 
-	CartItem(Product product, int quantity) {
+	public CartItem(Product product, int quantity) {
 		this.product = product;
 		this.quantity = quantity;
 	}

@@ -1,4 +1,4 @@
-package org.ecommerce;
+package eu.delta_source.internship;
 
 import java.util.ArrayList;
 
@@ -84,7 +84,7 @@ public class Cart {
 	}
 
 	// Method removing existing products from the cart.
-	private void removeCartItem(CartItem cartItem) {
+	public void removeCartItem(CartItem cartItem) {
 		cartItems.remove(cartItem);
 	}
 
