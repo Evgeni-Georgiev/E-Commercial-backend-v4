@@ -5,8 +5,7 @@ import java.util.Locale;
 
 /**
  * The Product class describes the characteristics of a product
- * that can be made as an object and outputs the data
- * to the console.
+ * that can be instantiated as an object.
  *
  * @author Evgeni Georgiev
  * @version 1.0
