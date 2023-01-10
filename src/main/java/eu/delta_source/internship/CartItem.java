@@ -1,5 +1,8 @@
 package eu.delta_source.internship;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 /**
  * The CartItem class wraps existing product as an item from cart.
  * It can be used to set quantity to that product and sum the total price.
@@ -12,6 +15,8 @@ public class CartItem {
 	private final Product product;
 
 	private int quantity;
+
+	NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(Locale.US);
 
 	// Constructor with default values.
 	public CartItem() {
@@ -43,6 +48,6 @@ public class CartItem {
 
 	// Method returning String with details that describe the class details.
 	public String returnCartItemDetails() {
-		return String.format("%s \nQuantity of the product: %s \nResult sum for price and quantity of product: $%,.2f", product.returnProductDetails(), getQuantity(), sumTotalPriceOfItem());
+		return String.format("%s \nQuantity of the product: %s \nResult sum for price and quantity of product: %s", product.returnProductDetails(), getQuantity(), currencyFormat.format(sumTotalPriceOfItem()));
 	}
 }
