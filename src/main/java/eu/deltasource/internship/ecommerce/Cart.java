@@ -1,8 +1,6 @@
-package eu.delta_source.internship;
+package eu.deltasource.internship.ecommerce;
 
-import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.Locale;
 
 /**
  * The Cart class is used to add delivery fee and VAT to the items from the Cart.
@@ -16,11 +14,9 @@ public class Cart {
 
 	private double deliveryFee;
 
-	NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(Locale.US);
-
 	// Method outputting details for single product(label, price, quantity, result sum for price and quantity).
 	public void productDetailsOutput() {
-		cartItems.forEach(product -> System.out.println(product.returnCartItemDetails()));
+		cartItems.forEach(product -> System.out.println(product.toString()));
 	}
 
 	// Add new product to the cart.
@@ -32,7 +28,7 @@ public class Cart {
 	// When the quantity is less than 1 the product is removed from the cart.
 	public void decreaseQuantityForItem(CartItem cartItem, int decreaseCountBy) {
 		int quantity = cartItem.getQuantity();
-		if(decreaseCountBy > quantity) {
+		if (decreaseCountBy > quantity) {
 			System.out.printf("Operation cannot be performed: Decrease count is less than quantity. Item: %s's quantity stays unchanged. %n", cartItem.getProduct().getProductLabel());
 		} else {
 			quantity -= decreaseCountBy;
@@ -52,10 +48,15 @@ public class Cart {
 	// Method outputting in the console the balance sheet for all products in the cart:
 	// Total price, VAT, Delivery Fee, The final price with Delivery fee and VAT added .
 	public void grandTotalOfCart() {
-		System.out.printf("Total sum of all items in cart: %s%n" +
-			"VAT: %s%n" +
-			"Calculation of Delivery Fee: %s%n" +
-			"Final price with Delivery Fee and VAT: %s%n", currencyFormat.format(totalSumOfAllItems()), currencyFormat.format(calculateVAT()), currencyFormat.format(calculateDeliveryFee()), currencyFormat.format(calculateEndPrice()));
+		System.out.println(this);
+	}
+
+	@Override
+	public String toString() {
+		return String.format("Total sum of all items in cart: $%,.2f%n" +
+			"VAT: $%,.2f%n" +
+			"Delivery Fee: $%,.2f%n" +
+			"Final price with Delivery Fee and VAT: $%,.2f%n", totalSumOfAllItems(), calculateVAT(), calculateDeliveryFee(), calculateEndPrice());
 	}
 
 	// Method summing the price sums for all items in the cart.
@@ -77,7 +78,7 @@ public class Cart {
 		var totalSum = totalSumOfAllItems();
 		if (totalSum < 100) {
 			deliveryFee = 10.0;
-		} else if (totalSum > 100 && totalSum < 200) {
+		} else if (totalSum >= 100 && totalSum < 200) {
 			deliveryFee = 5.0;
 		} else {
 			deliveryFee = 0.0;

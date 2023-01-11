@@ -1,7 +1,4 @@
-package eu.delta_source.internship;
-
-import java.text.NumberFormat;
-import java.util.Locale;
+package eu.deltasource.internship.ecommerce;
 
 /**
  * The Product class describes the characteristics of a product
@@ -16,12 +13,10 @@ public class Product {
 
 	private final double productPrice;
 
-	NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(Locale.US);
-
 	// Constructor with default values.
 	public Product() {
-		this.productLabel = "Dragon fruit";
-		this.productPrice = 10.0;
+		productLabel = "Dragon fruit";
+		productPrice = 10.0;
 	}
 
 	public Product(String productLabel, double productPrice) {
@@ -30,15 +25,16 @@ public class Product {
 	}
 
 	public String getProductLabel() {
-		return this.productLabel;
+		return productLabel;
 	}
 
 	public double getProductPrice() {
-		return this.productPrice;
+		return productPrice;
 	}
 
 	// Method is returning a String containing the details that describe the product(label, price).
-	public String returnProductDetails() {
-		return String.format("\nLabel of the product: %s \nPrice of the product: %s", getProductLabel(), currencyFormat.format(getProductPrice()));
+	@Override
+	public String toString() {
+		return String.format("\nLabel of the product: %s \nPrice of the product: $%,.2f", getProductLabel(), getProductPrice());
 	}
 }

@@ -1,4 +1,4 @@
-package eu.delta_source.internship;
+package eu.deltasource.internship.ecommerce;
 
 public class Application {
 	public static void main(String[] args) {
@@ -10,7 +10,7 @@ public class Application {
 		Product orange = new Product("Orange", 7.95);
 
 		// Wrapping the products as cart items and adding quantity to them.
-		CartItem appleItem = new CartItem(apple, 15);
+		CartItem appleItem = new CartItem(apple, 3);
 		CartItem carrotItem = new CartItem(carrot, 17);
 		CartItem dragonFruitItem = new CartItem();
 		CartItem bananaItem = new CartItem(banana, 10);
